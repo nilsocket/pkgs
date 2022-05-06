@@ -18,7 +18,7 @@ func TestPushPOP(t *testing.T) {
 		s.Push(v)
 	}
 
-	for v, err := s.Pop(); err == nil; v, err = s.Pop() {
+	for v := s.Pop(); v != nil; v = s.Pop() {
 		got = append(got, v)
 	}
 

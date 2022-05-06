@@ -1,20 +1,21 @@
 package stack
 
-import "errors"
-
 type Stack struct {
 	data  []any
 	index int
 }
 
+// New Stack
 func New() *Stack {
 	return &Stack{index: -1}
 }
 
+// Top returns top element
 func (s *Stack) Top() any {
 	return s.data[s.index]
 }
 
+// Push given element `a` into stack
 func (s *Stack) Push(a any) {
 	s.index++
 	if s.index < len(s.data) {
@@ -24,12 +25,12 @@ func (s *Stack) Push(a any) {
 	}
 }
 
-var ErrNoElements = errors.New("no more elements in stack")
-
-func (s *Stack) Pop() (any, error) {
+// Pop element from stack,
+// return `nil` when stack is empty.
+func (s *Stack) Pop() any {
 	if s.index > -1 {
 		s.index--
-		return s.data[s.index+1], nil
+		return s.data[s.index+1]
 	}
-	return nil, ErrNoElements
+	return nil
 }
