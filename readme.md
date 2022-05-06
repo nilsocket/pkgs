@@ -20,7 +20,7 @@
 
 | Algorithm     | Package Name                  |
 | :------------ | :---------------------------- |
-| Binary Search | [binary](algo/serach/binary/) |
+| Binary Search | [binary](algo/search/binary/) |
 
 ### Sort
 
