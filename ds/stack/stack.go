@@ -11,6 +11,10 @@ func New() *Stack {
 	return &Stack{index: -1}
 }
 
+func (s *Stack) Top() any {
+	return s.data[s.index]
+}
+
 func (s *Stack) Push(a any) {
 	s.index++
 	if s.index < len(s.data) {
@@ -23,10 +27,9 @@ func (s *Stack) Push(a any) {
 var ErrNoElements = errors.New("no more elements in stack")
 
 func (s *Stack) Pop() (any, error) {
-	if s.index >= 0 {
-		v := s.data[s.index]
+	if s.index > -1 {
 		s.index--
-		return v, nil
+		return s.data[s.index+1], nil
 	}
 	return nil, ErrNoElements
 }
